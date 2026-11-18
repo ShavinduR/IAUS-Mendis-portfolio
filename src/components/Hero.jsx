@@ -83,15 +83,18 @@ export default function Hero() {
 
           <div className="relative aspect-square rounded-full bg-[conic-gradient(from_140deg,#fcd34d,#fda4af,#d4a373,#fde68a,#f9a8d4,#fcd34d)] p-1.5 shadow-xl shadow-rose-900/10">
             <div className="size-full rounded-full bg-white p-2">
-              <img
-                src={site.portrait.src}
-                width="800"
-                height="800"
-                alt={site.portrait.alt}
-                fetchPriority="high"
-                decoding="async"
-                className="size-full rounded-full object-cover object-top"
-              />
+              <div className="size-full overflow-hidden rounded-full bg-slate-100">
+                {/* 3.jpeg is a waist-up shot: zoom toward the face for a headshot crop */}
+                <img
+                  src={site.portrait.src}
+                  width="1080"
+                  height="1080"
+                  alt={site.portrait.alt}
+                  fetchPriority="high"
+                  decoding="async"
+                  className="size-full origin-[50%_3%] scale-[1.4] object-cover"
+                />
+              </div>
             </div>
           </div>
 

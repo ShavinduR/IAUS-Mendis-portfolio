@@ -28,8 +28,7 @@ export const site = {
   email: 'umeshasathsaranimendis@gmail.com',
   linkedin: 'https://www.linkedin.com/in/umesha-sathsarani-321a71265',
   portrait: {
-    // Converted from IMG_0790.HEIC, which most browsers cannot display.
-    src: asset('IMG_0790.jpg'),
+    src: asset('3.jpeg'),
     alt: 'Portrait of Umesha Sathsarani Mendis',
   },
 }
@@ -98,9 +97,7 @@ export const research = [
       'Applied engineering principles to design and develop a small-scale milk emulsification machine and a shrimp coating machine optimized for sugar wax applications.',
     tag: 'Process Engineering',
     icon: Cog,
-    image: asset('3.jpeg'),
-    imageAlt: 'Umesha in a Faculty of Technology lab coat at the University of Sri Jayewardenepura',
-    focus: 'object-[50%_20%]',
+    image: null,
     cover: 'from-slate-800 via-slate-700 to-emerald-700',
   },
   {
