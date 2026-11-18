@@ -22,6 +22,11 @@ export const site = {
   cvUrl: '/Umesha_Sathsarani_Mendis_CV.pdf',
   email: 'umeshasathsaranimendis@gmail.com',
   linkedin: 'https://www.linkedin.com/in/umesha-sathsarani-321a71265',
+  portrait: {
+    src: '/umesha-portrait-480.webp',
+    srcSet: '/umesha-portrait-480.webp 480w, /umesha-portrait-800.webp 800w',
+    alt: 'Portrait of Umesha Sathsarani Mendis',
+  },
 }
 
 export const navLinks = [

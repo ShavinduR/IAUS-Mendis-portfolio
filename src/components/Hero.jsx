@@ -81,17 +81,28 @@ export default function Hero() {
           className="relative mx-auto w-full max-w-sm"
         >
           <div aria-hidden="true" className="absolute -inset-3 rotate-3 rounded-[2rem] bg-gradient-to-br from-rose-200 to-rose-100" />
-          <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-emerald-800 via-emerald-700 to-emerald-900 p-8 text-white shadow-xl shadow-emerald-900/20">
+          <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-emerald-800 via-emerald-700 to-emerald-900 p-6 text-white sm:p-7 shadow-xl shadow-emerald-900/20">
             <div aria-hidden="true" className="absolute -top-16 -right-16 size-48 rounded-full border border-white/10" />
             <div aria-hidden="true" className="absolute -top-8 -right-8 size-32 rounded-full border border-white/10" />
 
-            <div className="grid size-20 place-items-center rounded-2xl bg-white/10 font-heading text-2xl font-semibold text-rose-100 ring-1 ring-white/20 backdrop-blur">
-              UM
+            <div className="relative overflow-hidden rounded-2xl bg-slate-100 ring-1 ring-white/25">
+              <img
+                src={site.portrait.src}
+                srcSet={site.portrait.srcSet}
+                sizes="(min-width: 1024px) 320px, (min-width: 640px) 320px, 85vw"
+                width="480"
+                height="600"
+                alt={site.portrait.alt}
+                fetchPriority="high"
+                decoding="async"
+                className="aspect-[4/5] w-full object-cover"
+              />
+              <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-emerald-900/40 to-transparent" />
             </div>
             <p className="mt-6 font-heading text-xl font-semibold">{site.name}</p>
             <p className="mt-1 text-sm text-emerald-100">B.Sc. (Hons) Biosystems Technology</p>
 
-            <ul className="mt-8 space-y-4 text-sm">
+            <ul className="mt-6 space-y-3 text-sm">
               {[
                 [GraduationCap, 'University of Sri Jayewardenepura'],
                 [Medal, 'Gold Medal · Most Outstanding Graduate'],
@@ -104,7 +115,7 @@ export default function Hero() {
               ))}
             </ul>
 
-            <div className="mt-8 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs font-medium ring-1 ring-white/15">
+            <div className="mt-6 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs font-medium ring-1 ring-white/15">
               <span className="relative flex size-2">
                 <span className="absolute inline-flex size-full animate-ping rounded-full bg-rose-300 opacity-75 motion-reduce:hidden" />
                 <span className="relative inline-flex size-2 rounded-full bg-rose-300" />
