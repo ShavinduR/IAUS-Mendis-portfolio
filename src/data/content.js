@@ -20,14 +20,15 @@ const asset = (path) => `${import.meta.env.BASE_URL}${path}`
 
 export const site = {
   name: 'Umesha Sathsarani Mendis',
-  shortName: 'Umesha Mendis',
-  // Drop the CV you want to share publicly into /public using this file name.
-  cvUrl: asset('Umesha_Sathsarani_Mendis_CV.pdf'),
+  role: 'Food Technologist',
+  // Files below live in /public with exactly these names.
+  cvUrl: asset(encodeURI('UMESHA SATHSARANI CV.pdf')),
+  cvFileName: 'UMESHA SATHSARANI CV.pdf',
   email: 'umeshasathsaranimendis@gmail.com',
   linkedin: 'https://www.linkedin.com/in/umesha-sathsarani-321a71265',
   portrait: {
-    src: asset('umesha-portrait-480.webp'),
-    srcSet: `${asset('umesha-portrait-480.webp')} 480w, ${asset('umesha-portrait-800.webp')} 800w`,
+    // Converted from IMG_0790.HEIC, which most browsers cannot display.
+    src: asset('IMG_0790.jpg'),
     alt: 'Portrait of Umesha Sathsarani Mendis',
   },
 }
@@ -37,7 +38,6 @@ export const navLinks = [
   { label: 'Research', href: '#research' },
   { label: 'Experience', href: '#experience' },
   { label: 'Skills', href: '#skills' },
-  { label: 'Contact', href: '#contact' },
 ]
 
 export const hero = {
@@ -77,31 +77,35 @@ export const about = {
   ],
 }
 
-// `image` is optional: set it to a path in /public (e.g. '/research/cider.jpg')
-// to replace the illustrated cover with a real photograph.
+// `image` is optional: projects without one get an illustrated cover.
+// `focus` sets which part of the photo stays visible when it is cropped.
 export const research = [
   {
-    title: 'Sustainable Cider Production',
+    title: 'Sustainable Cider Production (from Pineapple Waste)',
     description:
-      'Utilized processing waste of Pineapple for cider production, innovatively enriched with natural cinnamon and cardamom flavors. Published abstract at ICIET 2025.',
-    tag: 'Published · ICIET 2025',
+      'Utilized processing waste of Pineapple for cider production, innovatively enriched with natural cinnamon and cardamom flavors. Presented at ICIET 2025.',
+    tag: 'Presented · ICIET 2025',
     icon: FlaskConical,
-    image: null,
+    image: asset('2.jpeg'),
+    imageAlt: 'Umesha examining a sample under a microscope in the food science laboratory',
+    focus: 'object-[50%_35%]',
     cover: 'from-emerald-700 via-emerald-600 to-teal-500',
   },
   {
-    title: 'Food Machinery Development',
+    title: 'Food Engineering & Machinery Development',
     description:
-      'Applied engineering principles by designing a small-scale milk emulsification machine and developing a shrimp coating machine optimized for sugar wax applications.',
+      'Applied engineering principles to design and develop small-scale milk emulsification and sugar-wax shrimp coating machines.',
     tag: 'Process Engineering',
     icon: Cog,
-    image: null,
+    image: asset('3.jpeg'),
+    imageAlt: 'Umesha in a Faculty of Technology lab coat at the University of Sri Jayewardenepura',
+    focus: 'object-[50%_20%]',
     cover: 'from-slate-800 via-slate-700 to-emerald-700',
   },
   {
     title: 'Culinary Innovations',
     description:
-      'Formulated a low-cost mango-flavored bubble tea using local mango varieties. Developed pomelo juice wine and introduced a mixed-flour pasta using food-grade hibiscus extraction colorings.',
+      'Formulated low-cost mango bubble tea (China collaboration), pomelo wine, and mixed-flour pasta with hibiscus extract.',
     tag: 'Product Development',
     icon: ChefHat,
     image: null,
@@ -110,7 +114,7 @@ export const research = [
   {
     title: 'Eco-Friendly Edible Coatings',
     description:
-      'Conducted advanced research on agricultural preservation, including the development of an edible coating for mangoes using Soap Nut extract and a flower preservation coating utilizing beeswax.',
+      'Developed protective Soap Nut extract edible coatings for mangoes and natural beeswax coatings for flower preservation.',
     tag: 'Post-Harvest Preservation',
     icon: Leaf,
     image: null,
@@ -125,7 +129,7 @@ export const experience = [
     period: 'Aug 2026 – Present',
     current: true,
     description:
-      'Overseeing food product quality assurance, executing critical analyses including Proximate and Microbial Analysis for industrial clients.',
+      'Food product quality assurance, proximate and microbial analysis for industrial clients, and management of outsourced projects.',
   },
   {
     role: 'Temporary Demonstrator',
@@ -133,7 +137,7 @@ export const experience = [
     period: 'Aug 2026 – Present',
     current: true,
     description:
-      'Facilitating laboratory practicals and guiding final-year undergraduate research projects.',
+      'Laboratory practical facilitation and undergraduate final-year research mentoring.',
   },
   {
     role: 'Temporary Demonstrator',
@@ -141,42 +145,32 @@ export const experience = [
     period: 'Sep 2025 – Aug 2026',
     current: false,
     description:
-      'Mentored students in the Faculty of Technology and actively contributed as a Co-editor for the BST Elevator Talk Magazine.',
+      'Mentored students, guided workshop modules, and served as co-editor for the ‘BST Elevator Talk’ Magazine.',
   },
   {
-    role: 'Research Trainee (Internship)',
+    role: 'Research Trainee (6-Month Internship)',
     org: 'National Institute of Post Harvest Management',
-    period: '2024 – 2025 (6 Months)',
+    period: '2024 – 2025',
     current: false,
     description:
-      'Actively participated in national-level research projects, gaining specialized experience in post-harvest preservation techniques.',
+      'Specialized in post-harvest processing methodologies and preservation.',
   },
 ]
 
 export const skills = [
   {
-    category: 'Laboratory & Quality Control',
+    category: 'Lab & QC',
     icon: Microscope,
-    items: [
-      'Proximate Analysis',
-      'Microbial Analysis',
-      'Traffic Light System Testing',
-      'Quality Control Standards',
-    ],
+    items: ['Proximate Analysis', 'Microbial Analysis', 'Traffic Light System Testing'],
   },
   {
-    category: 'Research & Development',
+    category: 'R&D',
     icon: Beaker,
-    items: [
-      'Food Machinery Design',
-      'Process Optimization',
-      'Edible Coatings Development',
-      'Sustainable Value Addition',
-    ],
+    items: ['Food Machinery Design', 'Process Optimization', 'Edible Coatings'],
   },
   {
-    category: 'Professional Skills',
+    category: 'Soft Skills',
     icon: Brain,
-    items: ['Project Management', 'Critical Thinking', 'Academic Writing', 'Team Leadership'],
+    items: ['Project Management', 'Academic Writing', 'Team Leadership'],
   },
 ]

@@ -8,12 +8,12 @@ function Cover({ project }) {
     return (
       <img
         src={project.image}
-        alt=""
-        width="400"
-        height="250"
+        alt={project.imageAlt}
+        width="800"
+        height="500"
         loading="lazy"
         decoding="async"
-        className="size-full object-cover transition-transform duration-700 group-hover:scale-105"
+        className={`size-full object-cover ${project.focus ?? ''} transition-transform duration-700 group-hover:scale-105`}
       />
     )
   }

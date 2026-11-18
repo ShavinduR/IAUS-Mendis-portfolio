@@ -1,5 +1,5 @@
 import { m } from 'framer-motion'
-import { ArrowRight, Download, GraduationCap, Medal, MapPin } from 'lucide-react'
+import { ArrowRight, Download, Medal, Sparkles } from 'lucide-react'
 import { hero, highlights, site } from '../data/content'
 
 const fadeUp = (delay) => ({
@@ -20,41 +20,39 @@ export default function Hero() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgb(15_23_42/0.06)_1px,transparent_0)] [background-size:28px_28px] [mask-image:linear-gradient(to_bottom,black,transparent_85%)]" />
       </div>
 
-      <div className="mx-auto grid max-w-6xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-[1.25fr_1fr]">
-        <div className="min-w-0">
-          <m.p {...fadeUp(0)} className="flex items-center gap-3 text-sm font-semibold tracking-[0.25em] text-emerald-800 uppercase">
-            <span className="h-px w-10 bg-emerald-800" aria-hidden="true" />
-            {hero.greeting}
-          </m.p>
-
-          <m.h1
-            {...fadeUp(0.1)}
-            className="mt-5 font-heading text-4xl leading-[1.1] font-semibold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl"
-          >
-            {first} {middle}{' '}
-            <span className="bg-gradient-to-r from-emerald-800 via-emerald-700 to-rose-400 bg-clip-text text-transparent">
-              {last}
+      <div className="mx-auto grid max-w-6xl items-center gap-16 px-5 sm:px-8 lg:grid-cols-[1.3fr_1fr]">
+        <div className="order-2 min-w-0 lg:order-1">
+          <m.h1 {...fadeUp(0)} className="font-heading text-slate-900">
+            <span className="flex items-center gap-3 text-sm font-semibold tracking-[0.25em] text-emerald-800 uppercase">
+              <span className="h-px w-10 bg-emerald-800" aria-hidden="true" />
+              {hero.greeting}
+            </span>
+            <span className="mt-5 block text-4xl leading-[1.1] font-semibold tracking-tight sm:text-5xl lg:text-6xl">
+              {first} {middle}{' '}
+              <span className="bg-gradient-to-r from-emerald-800 via-emerald-700 to-rose-400 bg-clip-text text-transparent">
+                {last}
+              </span>
             </span>
           </m.h1>
 
           <m.p
-            {...fadeUp(0.2)}
+            {...fadeUp(0.15)}
             className="mt-6 flex flex-wrap gap-y-1 font-heading text-base font-medium text-slate-800 sm:text-lg"
           >
             {hero.title.split(' | ').map((part, i, arr) => (
               <span key={part} className="whitespace-nowrap">
                 {part}
-                {i < arr.length - 1 && <span className="mx-2.5 text-rose-400" aria-hidden="true">✦</span>}
+                {i < arr.length - 1 && <span className="mx-2.5 text-amber-500" aria-hidden="true">✦</span>}
                 {i < arr.length - 1 && <span className="sr-only"> | </span>}
               </span>
             ))}
           </m.p>
 
-          <m.p {...fadeUp(0.3)} className="mt-6 max-w-xl text-base leading-relaxed text-slate-600 sm:text-[1.05rem]">
+          <m.p {...fadeUp(0.25)} className="mt-6 max-w-xl text-base leading-relaxed text-slate-600 sm:text-[1.05rem]">
             {hero.description}
           </m.p>
 
-          <m.div {...fadeUp(0.4)} className="mt-10 flex flex-col gap-4 sm:flex-row">
+          <m.div {...fadeUp(0.35)} className="mt-10 flex flex-col gap-4 sm:flex-row">
             <a
               href="#research"
               className="group inline-flex items-center justify-center gap-2 rounded-full bg-emerald-800 px-7 py-4 text-sm font-semibold text-white shadow-md shadow-emerald-900/15 transition-all hover:-translate-y-0.5 hover:bg-emerald-900 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800"
@@ -64,7 +62,7 @@ export default function Hero() {
             </a>
             <a
               href={site.cvUrl}
-              download
+              download={site.cvFileName}
               className="inline-flex items-center justify-center gap-2 rounded-full border border-rose-200 bg-rose-100 px-7 py-4 text-sm font-semibold text-rose-950 shadow-sm transition-all hover:-translate-y-0.5 hover:bg-rose-200 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-400"
             >
               <Download className="size-4" aria-hidden="true" />
@@ -73,62 +71,50 @@ export default function Hero() {
           </m.div>
         </div>
 
-        {/* Profile card */}
+        {/* Circular headshot with gold accent rings */}
         <m.div
-          initial={{ opacity: 0, scale: 0.96 }}
+          initial={{ opacity: 0, scale: 0.94 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-          className="relative mx-auto w-full max-w-sm"
+          transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+          className="relative order-1 mx-auto w-full max-w-[18rem] sm:max-w-[22rem] lg:order-2"
         >
-          <div aria-hidden="true" className="absolute -inset-3 rotate-3 rounded-[2rem] bg-gradient-to-br from-rose-200 to-rose-100" />
-          <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-emerald-800 via-emerald-700 to-emerald-900 p-6 text-white sm:p-7 shadow-xl shadow-emerald-900/20">
-            <div aria-hidden="true" className="absolute -top-16 -right-16 size-48 rounded-full border border-white/10" />
-            <div aria-hidden="true" className="absolute -top-8 -right-8 size-32 rounded-full border border-white/10" />
+          <div aria-hidden="true" className="absolute -inset-6 rounded-full border border-dashed border-amber-300/70 sm:-inset-8" />
+          <div aria-hidden="true" className="absolute -inset-2 rounded-full bg-gradient-to-br from-rose-200/60 via-transparent to-emerald-200/60 blur-xl" />
 
-            <div className="relative overflow-hidden rounded-2xl bg-slate-100 ring-1 ring-white/25">
+          <div className="relative aspect-square rounded-full bg-[conic-gradient(from_140deg,#fcd34d,#fda4af,#d4a373,#fde68a,#f9a8d4,#fcd34d)] p-1.5 shadow-xl shadow-rose-900/10">
+            <div className="size-full rounded-full bg-white p-2">
               <img
                 src={site.portrait.src}
-                srcSet={site.portrait.srcSet}
-                sizes="(min-width: 1024px) 320px, (min-width: 640px) 320px, 85vw"
-                width="480"
-                height="600"
+                width="800"
+                height="800"
                 alt={site.portrait.alt}
                 fetchPriority="high"
                 decoding="async"
-                className="aspect-[4/5] w-full object-cover"
+                className="size-full rounded-full object-cover object-top"
               />
-              <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-emerald-900/40 to-transparent" />
             </div>
-            <p className="mt-6 font-heading text-xl font-semibold">{site.name}</p>
-            <p className="mt-1 text-sm text-emerald-100">B.Sc. (Hons) Biosystems Technology</p>
+          </div>
 
-            <ul className="mt-6 space-y-3 text-sm">
-              {[
-                [GraduationCap, 'University of Sri Jayewardenepura'],
-                [Medal, 'Gold Medal · Most Outstanding Graduate'],
-                [MapPin, 'Sri Lanka · Open to study abroad'],
-              ].map(([Icon, text]) => (
-                <li key={text} className="flex items-start gap-3">
-                  <Icon className="mt-0.5 size-5 shrink-0 text-rose-200" aria-hidden="true" />
-                  {text}
-                </li>
-              ))}
-            </ul>
+          <div className="absolute -bottom-2 -left-4 flex items-center gap-2.5 rounded-2xl bg-white/95 px-4 py-3 shadow-lg ring-1 ring-amber-200 backdrop-blur sm:-left-8">
+            <span className="grid size-9 place-items-center rounded-xl bg-gradient-to-br from-amber-300 to-amber-500 text-white">
+              <Medal className="size-5" aria-hidden="true" />
+            </span>
+            <span className="text-left leading-tight">
+              <span className="block font-heading text-sm font-semibold text-slate-900">Gold Medalist</span>
+              <span className="block text-xs text-slate-600">Most Outstanding Graduate</span>
+            </span>
+          </div>
 
-            <div className="mt-6 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs font-medium ring-1 ring-white/15">
-              <span className="relative flex size-2">
-                <span className="absolute inline-flex size-full animate-ping rounded-full bg-rose-300 opacity-75 motion-reduce:hidden" />
-                <span className="relative inline-flex size-2 rounded-full bg-rose-300" />
-              </span>
-              Seeking Master’s / Ph.D. opportunities
-            </div>
+          <div className="absolute top-4 -right-3 flex items-center gap-2 rounded-full bg-emerald-800 px-4 py-2 text-xs font-semibold text-white shadow-lg sm:-right-6">
+            <Sparkles className="size-4 text-amber-200" aria-hidden="true" />
+            GPA 3.78
           </div>
         </m.div>
       </div>
 
       {/* Highlights strip */}
       <m.ul
-        {...fadeUp(0.55)}
+        {...fadeUp(0.5)}
         className="mx-auto mt-20 grid max-w-6xl grid-cols-2 gap-4 px-5 sm:px-8 lg:grid-cols-4"
       >
         {highlights.map(({ icon: Icon, value, label }) => (

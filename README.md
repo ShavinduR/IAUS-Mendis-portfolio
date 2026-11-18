@@ -15,9 +15,9 @@ Production build: `npm run build` (output in `dist/`). Vercel picks up the Vite 
 
 All copy, links and data live in `src/data/content.js`:
 
-- `site.cvUrl`: put the public CV at `public/Umesha_Sathsarani_Mendis_CV.pdf` (or change the path).
+- Photos and the CV live in `public/` (`IMG_0790.jpg`, `2.jpeg`, `3.jpeg`, `UMESHA SATHSARANI CV.pdf`). Replace a file with one of the same name to update it.
 - `site.email` / `site.linkedin`: footer contact links.
-- `research[].image`: set to an image path in `public/` (for example `/research/cider.jpg`) to replace the illustrated cover with a photo.
+- `research[].image`: add a photo for the Culinary or Edible Coatings cards the same way (`asset('4.jpeg')`).
 
 ## Structure
 

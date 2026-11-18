@@ -39,17 +39,21 @@ export default function Navbar() {
           <span aria-hidden="true" className="grid size-10 place-items-center rounded-xl bg-emerald-800 font-heading text-sm font-semibold text-rose-100 shadow-sm transition-transform group-hover:scale-105">
             UM
           </span>
-          <span className="sr-only font-heading text-base font-semibold text-slate-900 sm:not-sr-only">
-            {site.shortName}
+          <span className="sr-only font-heading text-[0.95rem] font-semibold text-slate-900 sm:not-sr-only">
+            {site.name}
+            <span className="hidden font-medium text-slate-500 lg:inline">
+              <span className="mx-2 text-amber-500" aria-hidden="true">|</span>
+              {site.role}
+            </span>
           </span>
         </a>
 
-        <ul className="hidden items-center gap-1 md:flex">
+        <ul className="hidden items-center gap-0.5 md:flex">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className="rounded-full px-4 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-emerald-50 hover:text-emerald-800"
+                className="rounded-full px-3 py-2 text-sm font-medium text-slate-600 lg:px-4 transition-colors hover:bg-emerald-50 hover:text-emerald-800"
               >
                 {link.label}
               </a>
@@ -60,8 +64,8 @@ export default function Navbar() {
         <div className="flex items-center gap-2">
           <a
             href={site.cvUrl}
-            download
-            className="hidden items-center gap-2 rounded-full bg-emerald-800 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-emerald-900 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800 sm:inline-flex"
+            download={site.cvFileName}
+            className="hidden items-center gap-2 rounded-full border border-amber-200 bg-rose-100 px-5 py-2.5 text-sm font-semibold text-rose-950 shadow-sm transition-all hover:-translate-y-0.5 hover:bg-rose-200 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-400 sm:inline-flex"
           >
             <Download className="size-4" aria-hidden="true" />
             Download CV
@@ -104,7 +108,7 @@ export default function Navbar() {
               <li className="pt-2">
                 <a
                   href={site.cvUrl}
-                  download
+                  download={site.cvFileName}
                   className="flex items-center justify-center gap-2 rounded-xl bg-emerald-800 px-4 py-3 text-base font-semibold text-white"
                 >
                   <Download className="size-4" aria-hidden="true" />
