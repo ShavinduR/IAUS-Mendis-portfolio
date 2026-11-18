@@ -1,6 +1,7 @@
 import { m } from 'framer-motion'
 import { ArrowRight, Download, Medal, Sparkles } from 'lucide-react'
 import { hero, highlights, site } from '../data/content'
+import { LinkedInIcon } from './icons'
 
 const fadeUp = (delay) => ({
   initial: { opacity: 0, y: 20 },
@@ -69,6 +70,20 @@ export default function Hero() {
               Download CV
             </a>
           </m.div>
+
+          <m.a
+            {...fadeUp(0.45)}
+            href={site.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group mt-6 inline-flex min-h-11 items-center gap-2.5 rounded-full py-2 pr-3 text-sm font-semibold text-slate-700 transition-colors hover:text-[#0A66C2]"
+          >
+            <span className="grid size-8 place-items-center rounded-lg bg-[#0A66C2] text-white shadow-sm transition-transform group-hover:scale-105">
+              <LinkedInIcon className="size-4" />
+            </span>
+            Connect on LinkedIn
+            <span className="sr-only"> (opens in a new tab)</span>
+          </m.a>
         </div>
 
         {/* Circular headshot with gold accent rings */}
