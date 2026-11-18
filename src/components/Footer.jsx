@@ -32,10 +32,13 @@ export default function Footer() {
                 href={site.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="LinkedIn profile (opens in a new tab)"
-                className="grid size-12 place-items-center rounded-full bg-white/5 text-slate-200 ring-1 ring-white/10 transition-all hover:-translate-y-0.5 hover:bg-rose-100 hover:text-rose-950"
+                className="group inline-flex min-h-12 items-center gap-3 rounded-full bg-white/5 py-1.5 pr-5 pl-1.5 text-sm font-medium text-slate-200 ring-1 ring-white/10 transition-all hover:-translate-y-0.5 hover:bg-rose-100 hover:text-rose-950"
               >
-                <LinkedInIcon className="size-5" />
+                <span className="grid size-9 shrink-0 place-items-center rounded-full bg-[#0A66C2] text-white">
+                  <LinkedInIcon className="size-4" />
+                </span>
+                LinkedIn
+                <span className="sr-only"> profile (opens in a new tab)</span>
               </a>
             </li>
             <li>

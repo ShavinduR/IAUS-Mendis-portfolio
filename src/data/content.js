@@ -26,7 +26,7 @@ export const site = {
   cvUrl: asset(encodeURI('UMESHA SATHSARANI CV.pdf')),
   cvFileName: 'UMESHA SATHSARANI CV.pdf',
   email: 'umeshasathsaranimendis@gmail.com',
-  linkedin: 'https://www.linkedin.com/in/umesha-sathsarani-321a71265',
+  linkedin: 'https://www.linkedin.com/in/umesha-sathsarani-321a71265/',
   portrait: {
     src: asset('3.jpeg'),
     alt: 'Portrait of Umesha Sathsarani Mendis',
