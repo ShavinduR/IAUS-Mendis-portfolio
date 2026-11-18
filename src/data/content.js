@@ -15,16 +15,19 @@ import {
 // ---------------------------------------------------------------------------
 // Site-wide settings: edit these to update links across the whole page.
 // ---------------------------------------------------------------------------
+// Files in /public are served under the deploy base path (e.g. GitHub Pages).
+const asset = (path) => `${import.meta.env.BASE_URL}${path}`
+
 export const site = {
   name: 'Umesha Sathsarani Mendis',
   shortName: 'Umesha Mendis',
   // Drop the CV you want to share publicly into /public using this file name.
-  cvUrl: '/Umesha_Sathsarani_Mendis_CV.pdf',
+  cvUrl: asset('Umesha_Sathsarani_Mendis_CV.pdf'),
   email: 'umeshasathsaranimendis@gmail.com',
   linkedin: 'https://www.linkedin.com/in/umesha-sathsarani-321a71265',
   portrait: {
-    src: '/umesha-portrait-480.webp',
-    srcSet: '/umesha-portrait-480.webp 480w, /umesha-portrait-800.webp 800w',
+    src: asset('umesha-portrait-480.webp'),
+    srcSet: `${asset('umesha-portrait-480.webp')} 480w, ${asset('umesha-portrait-800.webp')} 800w`,
     alt: 'Portrait of Umesha Sathsarani Mendis',
   },
 }
