@@ -83,8 +83,8 @@ export const research = [
   {
     title: 'Sustainable Cider Production (from Pineapple Waste)',
     description:
-      'Utilized processing waste of Pineapple for cider production, innovatively enriched with natural cinnamon and cardamom flavors. Presented at ICIET 2025.',
-    tag: 'Presented · ICIET 2025',
+      'Utilized processing waste of Pineapple for cider production, innovatively enriched with natural cinnamon and cardamom flavors. Published abstract at ICIET 2025.',
+    tag: 'Published · ICIET 2025',
     icon: FlaskConical,
     image: asset('2.jpeg'),
     imageAlt: 'Umesha examining a sample under a microscope in the food science laboratory',
@@ -94,7 +94,7 @@ export const research = [
   {
     title: 'Food Engineering & Machinery Development',
     description:
-      'Applied engineering principles to design and develop small-scale milk emulsification and sugar-wax shrimp coating machines.',
+      'Applied engineering principles to design and develop a small-scale milk emulsification machine and a shrimp coating machine optimized for sugar wax applications.',
     tag: 'Process Engineering',
     icon: Cog,
     image: asset('3.jpeg'),
@@ -105,7 +105,7 @@ export const research = [
   {
     title: 'Culinary Innovations',
     description:
-      'Formulated low-cost mango bubble tea (China collaboration), pomelo wine, and mixed-flour pasta with hibiscus extract.',
+      'Formulated a low-cost mango-flavored bubble tea using local mango varieties. Developed pomelo juice wine and introduced a mixed-flour pasta using food-grade hibiscus extraction colorings.',
     tag: 'Product Development',
     icon: ChefHat,
     image: null,
@@ -114,7 +114,7 @@ export const research = [
   {
     title: 'Eco-Friendly Edible Coatings',
     description:
-      'Developed protective Soap Nut extract edible coatings for mangoes and natural beeswax coatings for flower preservation.',
+      'Conducted advanced research on agricultural preservation, including the development of an edible coating for mangoes using Soap Nut extract and a flower preservation coating utilizing beeswax.',
     tag: 'Post-Harvest Preservation',
     icon: Leaf,
     image: null,
