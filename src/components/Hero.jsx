@@ -20,13 +20,13 @@ export default function Hero() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgb(15_23_42/0.06)_1px,transparent_0)] [background-size:28px_28px] [mask-image:linear-gradient(to_bottom,black,transparent_85%)]" />
       </div>
 
-      <div className="mx-auto grid max-w-6xl items-center gap-16 px-5 sm:px-8 lg:grid-cols-[1.3fr_1fr]">
-        <div className="order-2 min-w-0 lg:order-1">
+      <div className="mx-auto flex max-w-6xl flex-col items-center gap-16 px-5 sm:px-8 lg:grid lg:grid-cols-[1.3fr_1fr]">
+        <div className="w-full min-w-0">
           <m.h1 {...fadeUp(0)} className="font-heading text-slate-900">
             <span className="flex items-center gap-3 text-sm font-semibold tracking-[0.25em] text-emerald-800 uppercase">
               <span className="h-px w-10 bg-emerald-800" aria-hidden="true" />
               {hero.greeting}
-            </span>
+            </span>{' '}
             <span className="mt-5 block text-4xl leading-[1.1] font-semibold tracking-tight sm:text-5xl lg:text-6xl">
               {first} {middle}{' '}
               <span className="bg-gradient-to-r from-emerald-800 via-emerald-700 to-rose-400 bg-clip-text text-transparent">
@@ -76,7 +76,7 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.94 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-          className="relative order-1 mx-auto w-full max-w-[18rem] sm:max-w-[22rem] lg:order-2"
+          className="relative mx-auto w-full max-w-[16rem] sm:max-w-[20rem] lg:max-w-[22rem]"
         >
           <div aria-hidden="true" className="absolute -inset-6 rounded-full border border-dashed border-amber-300/70 sm:-inset-8" />
           <div aria-hidden="true" className="absolute -inset-2 rounded-full bg-gradient-to-br from-rose-200/60 via-transparent to-emerald-200/60 blur-xl" />
@@ -115,19 +115,19 @@ export default function Hero() {
       {/* Highlights strip */}
       <m.ul
         {...fadeUp(0.5)}
-        className="mx-auto mt-20 grid max-w-6xl grid-cols-2 gap-4 px-5 sm:px-8 lg:grid-cols-4"
+        className="mx-auto mt-20 grid max-w-6xl grid-cols-1 gap-3 px-5 min-[360px]:grid-cols-2 sm:gap-4 sm:px-8 lg:grid-cols-4"
       >
         {highlights.map(({ icon: Icon, value, label }) => (
           <li
             key={label}
-            className="flex items-center gap-4 rounded-2xl border border-slate-200/80 bg-white/80 p-5 shadow-sm backdrop-blur"
+            className="flex min-w-0 items-center gap-3 rounded-2xl border border-slate-200/80 bg-white/80 p-4 shadow-sm backdrop-blur sm:gap-4 sm:p-5"
           >
-            <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-emerald-50 text-emerald-800">
+            <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-emerald-50 text-emerald-800 sm:size-11">
               <Icon className="size-5" aria-hidden="true" />
             </span>
-            <div>
+            <div className="min-w-0">
               <p className="font-heading text-xl font-semibold text-slate-900">{value}</p>
-              <p className="text-xs leading-snug text-slate-600">{label}</p>
+              <p className="text-xs leading-snug break-words hyphens-auto text-slate-600">{label}</p>
             </div>
           </li>
         ))}

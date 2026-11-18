@@ -3,9 +3,50 @@ import { AnimatePresence, m } from 'framer-motion'
 import { Download, Menu, X } from 'lucide-react'
 import { navLinks, site } from '../data/content'
 
+/**
+ * Scroll-spy: returns the id of the section currently under the navbar.
+ * A section counts as active once its top passes ~35% of the viewport height;
+ * near the very bottom of the page the last linked section wins.
+ */
+function useActiveSection(ids) {
+  const [active, setActive] = useState('')
+
+  useEffect(() => {
+    let frame = 0
+    const update = () => {
+      frame = 0
+      const line = window.innerHeight * 0.35
+      const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4
+      let current = ''
+      for (const id of ids) {
+        const el = document.getElementById(id)
+        if (el && el.getBoundingClientRect().top <= line) current = id
+      }
+      if (atBottom) current = ids[ids.length - 1]
+      setActive(current)
+    }
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update)
+    }
+    update()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll)
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
+      cancelAnimationFrame(frame)
+    }
+  }, [ids])
+
+  return active
+}
+
+const sectionIds = navLinks.map((link) => link.href.slice(1))
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const active = useActiveSection(sectionIds)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16)
@@ -22,6 +63,7 @@ export default function Navbar() {
   }, [open])
 
   const solid = scrolled || open
+  const isActive = (href) => active === href.slice(1)
 
   return (
     <header
@@ -39,7 +81,12 @@ export default function Navbar() {
           <span aria-hidden="true" className="grid size-10 place-items-center rounded-xl bg-emerald-800 font-heading text-sm font-semibold text-rose-100 shadow-sm transition-transform group-hover:scale-105">
             UM
           </span>
-          <span className="sr-only font-heading text-[0.95rem] font-semibold text-slate-900 sm:not-sr-only">
+          {/* Short name on phones, full name from sm, plus role from lg */}
+          <span className="font-heading text-base font-semibold text-slate-900 sm:hidden">
+            {site.shortName}
+            <span className="sr-only"> Sathsarani Mendis</span>
+          </span>
+          <span className="hidden font-heading text-[0.95rem] font-semibold text-slate-900 sm:inline">
             {site.name}
             <span className="hidden font-medium text-slate-500 lg:inline">
               <span className="mx-2 text-amber-500" aria-hidden="true">|</span>
@@ -53,9 +100,20 @@ export default function Navbar() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="rounded-full px-3 py-2 text-sm font-medium text-slate-600 lg:px-4 transition-colors hover:bg-emerald-50 hover:text-emerald-800"
+                aria-current={isActive(link.href) ? 'true' : undefined}
+                className={`relative rounded-full px-3 py-2 text-sm font-medium transition-colors lg:px-4 ${
+                  isActive(link.href)
+                    ? 'bg-emerald-50 text-emerald-800'
+                    : 'text-slate-600 hover:bg-emerald-50 hover:text-emerald-800'
+                }`}
               >
                 {link.label}
+                {isActive(link.href) && (
+                  <span
+                    aria-hidden="true"
+                    className="absolute -bottom-1 left-1/2 size-1.5 -translate-x-1/2 rounded-full bg-amber-400"
+                  />
+                )}
               </a>
             </li>
           ))}
@@ -99,9 +157,17 @@ export default function Navbar() {
                   <a
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className="block rounded-xl px-4 py-3 text-base font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-800"
+                    aria-current={isActive(link.href) ? 'true' : undefined}
+                    className={`flex items-center justify-between rounded-xl px-4 py-3 text-base font-medium ${
+                      isActive(link.href)
+                        ? 'bg-emerald-50 text-emerald-800'
+                        : 'text-slate-700 hover:bg-emerald-50 hover:text-emerald-800'
+                    }`}
                   >
                     {link.label}
+                    {isActive(link.href) && (
+                      <span aria-hidden="true" className="size-2 rounded-full bg-amber-400" />
+                    )}
                   </a>
                 </li>
               ))}

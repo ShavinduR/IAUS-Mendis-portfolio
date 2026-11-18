@@ -15,14 +15,16 @@ export default function Footer() {
             </p>
           </div>
 
-          <ul className="flex items-center gap-3">
+          <ul className="flex flex-wrap items-center gap-3">
             <li>
               <a
                 href={`mailto:${site.email}`}
-                aria-label="Send an email"
-                className="grid size-12 place-items-center rounded-full bg-white/5 text-slate-200 ring-1 ring-white/10 transition-all hover:-translate-y-0.5 hover:bg-rose-100 hover:text-rose-950"
+                className="group inline-flex min-h-12 items-center gap-3 rounded-full bg-white/5 py-1.5 pr-5 pl-1.5 text-sm font-medium [overflow-wrap:anywhere] text-slate-200 ring-1 ring-white/10 transition-all hover:-translate-y-0.5 hover:bg-rose-100 hover:text-rose-950"
               >
-                <Mail className="size-5" aria-hidden="true" />
+                <span className="grid size-9 shrink-0 place-items-center rounded-full bg-white/10 transition-colors group-hover:bg-rose-200">
+                  <Mail className="size-4" aria-hidden="true" />
+                </span>
+                {site.email}
               </a>
             </li>
             <li>

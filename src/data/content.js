@@ -20,6 +20,7 @@ const asset = (path) => `${import.meta.env.BASE_URL}${path}`
 
 export const site = {
   name: 'Umesha Sathsarani Mendis',
+  shortName: 'Umesha',
   role: 'Food Technologist',
   // Files below live in /public with exactly these names.
   cvUrl: asset(encodeURI('UMESHA SATHSARANI CV.pdf')),
